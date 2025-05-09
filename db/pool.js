@@ -6,5 +6,5 @@ const { Pool } = require("pg");
 const dbConnection = argv[2];
 
 module.exports = new Pool({
-    connectionString: process.env[`${dbConnection}`]
+    connectionString: process.env[`${argv[2]}`]
 });
