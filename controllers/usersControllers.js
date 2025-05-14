@@ -9,16 +9,16 @@ const passwordErr = "must be between 5 and 20 characters.";
 
 // validate user inputs
 const validateUser = [
-    body("firstName").trim()
+    body("firstName").trim().notEmpty()
         .isAlpha().withMessage(`First name ${alphaErr}`)
         .isLength({ min: 1, max: 10 }).withMessage(`First name ${lengthErr}`),
-    body("lastName").trim()
+    body("lastName").trim().notEmpty()
         .isAlpha().withMessage(`Last name ${alphaErr}`)
         .isLength({ min: 1, max: 10 }).withMessage(`Last name ${lengthErr}`),
-    body("username").trim()
+    body("username").trim().notEmpty()
         .isAlphanumeric().withMessage(`username ${alphaNumErr}`)
         .isLength({ min: 1, max: 10 }).withMessage(`username ${lengthErr}`),
-    body("password").trim()
+    body("password").trim().notEmpty()
         .isLength({ min: 5, max: 20 }).withMessage(`password ${passwordErr}`)
 ];
 
