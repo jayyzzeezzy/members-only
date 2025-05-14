@@ -17,9 +17,20 @@ const validateUser = [
         .isLength({ min: 1, max: 10 }).withMessage(`Last name ${lengthErr}`),
     body("username").trim().notEmpty()
         .isAlphanumeric().withMessage(`username ${alphaNumErr}`)
-        .isLength({ min: 1, max: 10 }).withMessage(`username ${lengthErr}`),
+        .isLength({ min: 1, max: 10 }).withMessage(`username ${lengthErr}`)
+        // prevent duplicate username
+        .custom(async value => {
+            const user = await db.findUserByUsername(value);
+            if (user) {
+                throw new Error("Username already in use");
+            }
+        }),
+        // -------------------------
     body("password").trim().notEmpty()
-        .isLength({ min: 5, max: 20 }).withMessage(`password ${passwordErr}`)
+        .isLength({ min: 5, max: 20 }).withMessage(`password ${passwordErr}`),
+    body("confirmPassword")
+        .custom((value, { req }) => value === req.body.password)
+        .withMessage('Passwords do not match'),
 ];
 
 exports.postSignUp = [
