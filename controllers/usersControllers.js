@@ -65,3 +65,7 @@ exports.getLogOut = (req, res, next) => {
         res.redirect("/");
     });
 };
+
+exports.getMembership = (req, res) => {
+    res.render("membership");
+}
