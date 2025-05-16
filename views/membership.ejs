@@ -5,6 +5,7 @@
   <title>Membership</title>
 </head>
 <body>
+  <%- include("partials/errors.ejs") %>
   <form action="/membership" method="POST">
     <label for="secretCode">Become a member</label>
     <input id="secretCode" name="secretCode" placeholder="Secret code" type="text" />

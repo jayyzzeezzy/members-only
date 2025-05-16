@@ -15,7 +15,15 @@ async function findUserByUsername(username) {
     return rows[0];
 }
 
+async function makeMember(id) {
+    await pool.query(
+        "UPDATE users SET membership = true WHERE id = $1",
+        [id]
+    );
+}
+
 module.exports = {
     insertNewUser,
     findUserByUsername,
+    makeMember,
 }
