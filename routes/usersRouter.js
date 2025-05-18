@@ -5,5 +5,6 @@ const usersRouter = Router();
 usersRouter.get("/", usersController.getIndex);
 usersRouter.get("/membership", usersController.getMembership);
 usersRouter.post("/membership", usersController.postMembership);
+usersRouter.get("/home", usersController.getHome);
 
 module.exports = usersRouter;

@@ -42,7 +42,7 @@ passport.deserializeUser(async (id, done) => {
 
 // router middleware
 authRouter.post('/log-in', passport.authenticate('local', {
-    successRedirect: '/',
+    successRedirect: '/home',
     failureRedirect: '/'
 }));
 authRouter.get("/log-out", usersController.getLogOut);

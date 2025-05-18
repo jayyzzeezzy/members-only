@@ -58,7 +58,7 @@ exports.postSignUp = [
 
 exports.getIndex = (req, res) => {
     // console.log(req.session);
-    res.render("index", { title: "Homepage", user: req.user });
+    res.render("index", { user: req.user });
 };
 
 exports.getSignUp = (req, res) => {
@@ -92,3 +92,7 @@ exports.postMembership = [
         res.redirect("/");
     }
 ];
+
+exports.getHome = (req, res) => {
+    res.render("home", { user: req.user });
+}
