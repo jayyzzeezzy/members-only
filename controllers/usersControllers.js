@@ -57,6 +57,7 @@ exports.postSignUp = [
 ];
 
 exports.getIndex = (req, res) => {
+    // console.log(req.session);
     res.render("index", { title: "Homepage", user: req.user });
 };
 
