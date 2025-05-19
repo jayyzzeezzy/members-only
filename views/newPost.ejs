@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New Post</title>
+</head>
+<body>
+  <% if (locals.currentUser) {%>
+    <form action="/new-post" method="POST">
+      <label for="postTitle">Title</label>
+      <input id="postTitle" name="postTitle" placeholder="Title" type="text" required />
+      <label for="newMessage">Message</label>
+      <textarea name="newMessage" id="newMessage" placeholder="Hello world!" required></textarea>
+      <button type="submit">Post</button>
+    </form>
+  <% } else { %>
+    <h1>please log in</h1>
+    <a href="/">Log In</a>
+  <%}%>
+</body>
+</html>

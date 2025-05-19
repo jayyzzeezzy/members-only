@@ -34,6 +34,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 
 // set up routes
+app.use((req, res, next) => {
+    res.locals.currentUser = req.user;
+    next();
+});
 app.use("/", usersRouter);
 app.use('/', authRouter);
 

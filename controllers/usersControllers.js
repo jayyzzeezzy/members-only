@@ -96,3 +96,7 @@ exports.postMembership = [
 exports.getHome = (req, res) => {
     res.render("home", { user: req.user });
 }
+
+exports.getNewPost = (req, res) => {
+    res.render("newPost");
+}
