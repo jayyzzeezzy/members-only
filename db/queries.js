@@ -30,9 +30,17 @@ async function makeMember(id) {
     );
 }
 
+async function postNewMessage(id, postTitle, newMessage) {
+    await pool.query(
+        "INSERT INTO posts (author_id, title, message) VALUES ($1, $2, $3)", 
+        [id, postTitle, newMessage]
+    );
+}
+
 module.exports = {
     insertNewUser,
     findUserByUsername,
     findUserById,
     makeMember,
+    postNewMessage,
 }

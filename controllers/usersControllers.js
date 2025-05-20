@@ -1,6 +1,7 @@
 require("dotenv").config();
 const db = require("../db/queries");
 const bcrypt = require("bcryptjs");
+const { json } = require("express");
 const { body, validationResult } = require("express-validator");
 
 const alphaErr = "must only contain letters.";
@@ -99,4 +100,11 @@ exports.getHome = (req, res) => {
 
 exports.getNewPost = (req, res) => {
     res.render("newPost");
+}
+
+exports.postNewPost = async (req, res) => {
+    const { id } = req.user;
+    const { postTitle, newMessage } = req.body;
+    await db.postNewMessage(id, postTitle, newMessage);
+    res.redirect("/home");
 }
