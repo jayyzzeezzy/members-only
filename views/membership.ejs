@@ -6,10 +6,15 @@
 </head>
 <body>
   <%- include("partials/errors.ejs") %>
+  <% if (currentUser.membership) {%>
+    <h1>You're already a member</h1>
+    <a href="/home">Homepage</a>
+  <% } else { %>
   <form action="/membership" method="POST">
     <label for="secretCode">Become a member</label>
     <input id="secretCode" name="secretCode" placeholder="Secret code" type="text" />
     <button type="submit">Join</button>
   </form>
+  <%}%>
 </body>
 </html>

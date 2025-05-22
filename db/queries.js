@@ -37,10 +37,16 @@ async function postNewMessage(id, postTitle, newMessage) {
     );
 }
 
+async function getAllMessages() {
+    const { rows } = await pool.query("SELECT * FROM posts ORDER BY time DESC");
+    return rows;
+}
+
 module.exports = {
     insertNewUser,
     findUserByUsername,
     findUserById,
     makeMember,
     postNewMessage,
+    getAllMessages,
 }
