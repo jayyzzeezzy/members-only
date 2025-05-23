@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin</title>
+</head>
+<body>
+  <%- include("partials/errors.ejs") %>
+  <% if (currentUser.isAdmin) {%>
+    <h1>You're already an Admin</h1>
+    <a href="/home">Homepage</a>
+  <% } else { %>
+  <form action="/admin" method="POST">
+    <label for="adminCode">Please enter a code:</label>
+    <input id="adminCode" name="adminCode" placeholder="Admin code" type="text" />
+    <button type="submit">Submit</button>
+  </form>
+  <%}%>
+</body>
+</html>

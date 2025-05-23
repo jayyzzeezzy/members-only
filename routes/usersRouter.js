@@ -8,5 +8,6 @@ usersRouter.post("/membership", usersController.postMembership);
 usersRouter.get("/home", usersController.getHome);
 usersRouter.get("/new-post", usersController.getNewPost);
 usersRouter.post("/new-post", usersController.postNewPost);
+usersRouter.get("/admin", usersController.getAdmin);
 
 module.exports = usersRouter;

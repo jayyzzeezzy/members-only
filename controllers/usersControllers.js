@@ -111,3 +111,7 @@ exports.postNewPost = async (req, res) => {
     await db.postNewMessage(id, postTitle, newMessage);
     res.redirect("/home");
 }
+
+exports.getAdmin = (req, res) => {
+    res.render("admin");
+}
