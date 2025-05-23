@@ -1,1 +1,15 @@
-<p>testing testing</p>
+<% if (user.membership) { %>
+    <div>
+        <p><strong><%= msg.title %></strong></p>
+        <p><%= msg.message %></p>
+        <p><%= user.first_name %> <%= user.last_name %></p>
+        <p><%= msg.time %></p>
+    </div>
+<%} else {%>
+    <div>
+        <p><strong><%= msg.title %></strong></p>
+        <p><%= msg.message %></p>
+        <p>Posted by: Anonymous</p>
+        <p>Posted at: Secret time</p>
+    </div>
+<%}%>

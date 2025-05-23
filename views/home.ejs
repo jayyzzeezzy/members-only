@@ -7,7 +7,9 @@
   <%- include("./navbar.ejs") %>
 
   <% if (locals.currentUser) {%>
-    <%- include("messages", {messages: messages}); %>
+    <% messages.forEach((msg) => { %>
+      <%- include("messages", {msg: msg, user: currentUser}); %>
+    <% }) %>
   <% } else { %>
     <h1>please log in</h1>
     <a href="/">Log In</a>
