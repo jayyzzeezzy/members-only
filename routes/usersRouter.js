@@ -9,5 +9,6 @@ usersRouter.get("/home", usersController.getHome);
 usersRouter.get("/new-post", usersController.getNewPost);
 usersRouter.post("/new-post", usersController.postNewPost);
 usersRouter.get("/admin", usersController.getAdmin);
+usersRouter.post("/admin", usersController.postAdmin);
 
 module.exports = usersRouter;

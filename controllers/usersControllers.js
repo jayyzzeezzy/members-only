@@ -19,14 +19,14 @@ const validateUser = [
     body("username").trim().notEmpty()
         .isAlphanumeric().withMessage(`username ${alphaNumErr}`)
         .isLength({ min: 1, max: 10 }).withMessage(`username ${lengthErr}`)
-        // prevent duplicate username
+// prevent duplicate username
         .custom(async value => {
             const user = await db.findUserByUsername(value);
             if (user) {
                 throw new Error("Username already in use");
             }
         }),
-        // -------------------------
+// Does .withMessage() have greater priority than throw Error?-----------
     body("password").trim().notEmpty()
         .isLength({ min: 5, max: 20 }).withMessage(`password ${passwordErr}`),
     body("confirmPassword").trim().notEmpty()
@@ -35,9 +35,15 @@ const validateUser = [
 ];
 
 const validateMembership = [
-    body("secretCode")
+    body("secretCode").trim().notEmpty()
         .custom((value, { req }) => value === req.user.last_name)
         .withMessage("Incorrect code. *Hint: it it part of your name*"),
+];
+
+const validateAdmin = [
+    body("adminCode").trim().notEmpty()
+        .custom((value) => value === process.env.ADMIN_CODE)
+        .withMessage("Invalid code"),
 ];
 
 exports.postSignUp = [
@@ -89,7 +95,7 @@ exports.postMembership = [
         }
         const { id } = req.user;
         await db.makeMember(id);
-        res.redirect("/");
+        res.redirect("/home");
     }
 ];
 
@@ -115,3 +121,18 @@ exports.postNewPost = async (req, res) => {
 exports.getAdmin = (req, res) => {
     res.render("admin");
 }
+
+exports.postAdmin = [
+    validateAdmin,
+    async (req, res) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).render("admin", {
+                errors: errors.array(),
+            });
+        }
+        const { id } = req.user;
+        await db.makeAdmin(id);
+        res.redirect("/home");
+    }
+];

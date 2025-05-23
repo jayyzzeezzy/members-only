@@ -30,6 +30,13 @@ async function makeMember(id) {
     );
 }
 
+async function makeAdmin(id) {
+    await pool.query(
+        "UPDATE users SET isAdmin = true WHERE id = $1",
+        [id]
+    );
+}
+
 async function postNewMessage(id, postTitle, newMessage) {
     await pool.query(
         "INSERT INTO posts (author_id, title, message) VALUES ($1, $2, $3)", 
@@ -49,4 +56,5 @@ module.exports = {
     makeMember,
     postNewMessage,
     getAllMessages,
+    makeAdmin,
 }
