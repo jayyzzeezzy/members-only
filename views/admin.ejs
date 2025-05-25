@@ -6,7 +6,7 @@
 </head>
 <body>
   <%- include("partials/errors.ejs") %>
-  <% if (currentUser.isAdmin) {%>
+  <% if (currentUser.isadmin) {%>
     <h1>You're already an Admin</h1>
     <a href="/home">Homepage</a>
   <% } else { %>

@@ -103,7 +103,7 @@ exports.postMembership = [
 // don't forget again
 exports.getHome = async (req, res) => {
     const messages = await db.getAllMessages();
-    console.log("messages: ", messages);
+    // console.log("messages: ", messages);
     res.render("home", { messages: messages });
 }
 
@@ -132,6 +132,7 @@ exports.postAdmin = [
             });
         }
         const { id } = req.user;
+        await db.makeMember(id);
         await db.makeAdmin(id);
         res.redirect("/home");
     }

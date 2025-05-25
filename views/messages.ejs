@@ -1,3 +1,4 @@
+<div>
 <% if (user.membership) { %>
     <div>
         <p><strong><%= msg.title %></strong></p>
@@ -5,6 +6,12 @@
         <p><%= user.first_name %> <%= user.last_name %></p>
         <p><%= msg.time %></p>
     </div>
+
+    <% if (user.isadmin) { %>
+        <div>
+            <button>Delete</button>
+        </div>
+    <%}%>
 <%} else {%>
     <div>
         <p><strong><%= msg.title %></strong></p>
@@ -13,3 +20,4 @@
         <p>Posted at: Secret time</p>
     </div>
 <%}%>
+</div>

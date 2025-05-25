@@ -8,7 +8,7 @@
 
   <% if (locals.currentUser) {%>
     <% messages.forEach((msg) => { %>
-      <%- include("messages", {msg: msg, user: currentUser}); %>
+      <%- include("messages", {msg: msg, user: locals.currentUser}); %>
     <% }) %>
   <% } else { %>
     <h1>please log in</h1>
