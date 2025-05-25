@@ -10,5 +10,7 @@ usersRouter.get("/new-post", usersController.getNewPost);
 usersRouter.post("/new-post", usersController.postNewPost);
 usersRouter.get("/admin", usersController.getAdmin);
 usersRouter.post("/admin", usersController.postAdmin);
+usersRouter.get("/delete", usersController.getDeleteMessage);
+usersRouter.post("/delete/:messageId", usersController.postDeleteMessage);
 
 module.exports = usersRouter;

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Confirm Delete</title>
+</head>
+<body>
+  <% if (locals.currentUser) {%>
+    <h1>Message delete</h1>
+    <a href="/home">Return Home</a>
+  <% } else { %>
+    <h1>Failed to delete</h1>
+    <a href="/home">Return Home</a>
+  <%}%>
+</body>
+</html>

@@ -137,3 +137,13 @@ exports.postAdmin = [
         res.redirect("/home");
     }
 ];
+
+exports.getDeleteMessage = (req, res) => {
+    res.render("delete");
+}
+
+exports.postDeleteMessage = async (req, res) => {
+    const { messageId } = req.params;
+    await db.deleteMessage(messageId);
+    res.redirect("/delete");
+}
