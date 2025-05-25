@@ -5,12 +5,13 @@
   <title>Confirm Delete</title>
 </head>
 <body>
+  <a href="/home">
+    <span>Home</span>
+  </a>
   <% if (locals.currentUser) {%>
-    <h1>Message delete</h1>
-    <a href="/home">Return Home</a>
+    <h1>Message deleted</h1>
   <% } else { %>
-    <h1>Failed to delete</h1>
-    <a href="/home">Return Home</a>
+    <h1>Failed to deleted</h1>
   <%}%>
 </body>
 </html>

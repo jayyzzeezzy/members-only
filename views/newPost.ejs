@@ -5,6 +5,9 @@
   <title>New Post</title>
 </head>
 <body>
+  <a href="/home">
+    <span>Back</span>
+  </a>
   <% if (locals.currentUser) {%>
     <form action="/new-post" method="POST">
       <label for="postTitle">Title</label>

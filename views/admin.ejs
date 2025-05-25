@@ -5,11 +5,13 @@
   <title>Admin</title>
 </head>
 <body>
+  <a href="/home">
+    <span>Back</span>
+  </a>
   <%- include("partials/errors.ejs") %>
   <!-- psql uses all lower case for column names by default -->
   <% if (currentUser.isadmin) {%>
     <h1>You're already an Admin</h1>
-    <a href="/home">Homepage</a>
   <% } else { %>
   <form action="/admin" method="POST">
     <label for="adminCode">Please enter a code:</label>
