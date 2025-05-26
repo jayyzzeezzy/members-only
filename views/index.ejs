@@ -3,25 +3,44 @@
 <html>
 <head>
   <title>Welcome to Members Only</title>
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
+  <div class="index-container">
   <% if (locals.user) {%>
     <h1>WELCOME BACK <%= user.username %></h1>
-    <a href="/home">Homepage</a>
-    <a href="/log-out">LOG OUT</a>
+    <div class="directory">
+      <a href="/home">
+        <button class="home-btn">
+          Home
+        </button>
+      </a>
+      <a href="/log-out">
+        <button class="logout-btn">
+          Log out
+        </button>
+      </a>
+    </div>
   <% } else { %>
-    <h1>Please log in</h1>
-    <form action="/log-in" method="POST">
+    <h1 class="form-header">Log in</h1>
+    <form action="/log-in" method="POST" class="login-form">
       <label for="username">Username</label>
-      <input id="username" name="username" placeholder="username" type="text" />
+      <input id="username" name="username" type="text" />
       <label for="password">Password</label>
       <input id="password" name="password" type="password" />
-      <button type="submit">Log In</button>
+      <button type="submit" class="login-btn">Log In</button>
     </form>
-    <div>
-      <h1>Or click here to sign up:</h1>
-      <a href="/sign-up">Sign Up</a>
+    <div class="signup-container">
+      <h4>
+        Or sign up for an account:
+      </h4>
+      <a href="/sign-up" class="signup-link">
+        <button class="signup-btn">
+          Sign Up
+        </button>
+      </a>
     </div>
+  </div>
   <%}%>
 </body>
 </html>
