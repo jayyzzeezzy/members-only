@@ -18,7 +18,7 @@ const validateUser = [
         .isLength({ min: 1, max: 10 }).withMessage(`Last name ${lengthErr}`),
     body("username").trim().notEmpty()
         .isAlphanumeric().withMessage(`username ${alphaNumErr}`)
-        .isLength({ min: 1, max: 10 }).withMessage(`username ${lengthErr}`)
+        .isLength({ min: 1, max: 30 }).withMessage(`username ${lengthErr}`)
 // prevent duplicate username
         .custom(async value => {
             const user = await db.findUserByUsername(value);
@@ -112,9 +112,9 @@ exports.getNewPost = (req, res) => {
 }
 
 exports.postNewPost = async (req, res) => {
-    const { id } = req.user;
+    const { username } = req.user;
     const { postTitle, newMessage } = req.body;
-    await db.postNewMessage(id, postTitle, newMessage);
+    await db.postNewMessage(username, postTitle, newMessage);
     res.redirect("/home");
 }
 

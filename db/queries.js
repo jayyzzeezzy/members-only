@@ -37,10 +37,10 @@ async function makeAdmin(id) {
     );
 }
 
-async function postNewMessage(id, postTitle, newMessage) {
+async function postNewMessage(username, postTitle, newMessage) {
     await pool.query(
-        "INSERT INTO posts (author_id, title, message) VALUES ($1, $2, $3)", 
-        [id, postTitle, newMessage]
+        "INSERT INTO posts (author, title, message) VALUES ($1, $2, $3)", 
+        [username, postTitle, newMessage]
     );
 }
 
