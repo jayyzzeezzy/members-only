@@ -95,3 +95,42 @@ body {
 .home-btn {
     margin-right: 20px;
 }
+
+.navbar {
+    padding: 4px 10px;
+    background-color: var(--white);
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.navbar-links {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-links > li {
+    list-style-type: none;
+}
+
+.navbar-links a {
+    text-decoration: none;
+    color: var(--background);
+    font-weight: bold;
+    padding: 4px 10px;
+}
+
+.navbar-links a:hover {
+    background-color: #BB86FC;
+}
+
+.message-container {
+    border: 1px solid var(--white);
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.message-title {
+    font-size: 18px;
+}

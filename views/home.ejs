@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/styles.css">
   <title>Home</title>
 </head>
 <body>
+  <div class="home-container">
   <%- include("./navbar.ejs") %>
 
-  <% if (locals.currentUser) {%>
-    <% messages.forEach((msg) => { %>
-      <%- include("messages", {msg: msg, user: locals.currentUser}); %>
-    <% }) %>
-  <% } else { %>
-    <h1>please log in</h1>
-    <a href="/">Log In</a>
-  <%}%>
+  <div class="message-board">
+    <% if (locals.currentUser) {%>
+      <% messages.forEach((msg) => { %>
+        <%- include("messages", {msg: msg, user: locals.currentUser}); %>
+      <% }) %>
+    <% } else { %>
+      <h1>please log in</h1>
+      <a href="/">Log In</a>
+    <%}%>
+  </div>
+
+</div>
 </body>
 </html>

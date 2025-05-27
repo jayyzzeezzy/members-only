@@ -1,10 +1,10 @@
-<div>
+<div class="message-container">
 <% if (user.membership) { %>
     <div>
-        <p><strong><%= msg.title %></strong></p>
+        <p class="message-title"><strong><%= msg.title %></strong></p>
         <p><%= msg.message %></p>
-        <p><%= msg.author %></p>
-        <p><%= msg.time %></p>
+        <p>Author: <%= msg.author %></p>
+        <p>Time: <%= msg.time %></p>
     </div>
 
     <% if (user.isadmin) { %>
@@ -12,7 +12,7 @@
             <p>ID: <%= msg.id%></p>
             <form form action="/delete/<%= msg.id %>" method="POST">
             <!-- confirm with user before deleting message -->
-                <button type="submit" onclick="return confirm('Are you sure?')">Delete</button>
+                <button class="delete-message" type="submit" onclick="return confirm('Are you sure?')">Delete</button>
             </form>
         </div>
     <%}%>
