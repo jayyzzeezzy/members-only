@@ -129,8 +129,28 @@ body {
     border-radius: 10px;
     padding: 10px;
     margin-bottom: 20px;
+    font-size: 15px;
 }
 
-.message-title {
+.general-access .message-title {
     font-size: 18px;
+    font-weight: bold;
+}
+
+.general-access .message-text {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.admin-access {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.delete-message {
+    cursor: pointer;
+    font-size: 14px;
+    padding: 0px 2px;
 }

@@ -1,14 +1,7 @@
 <div class="message-container">
 <% if (user.membership) { %>
-    <div>
-        <p class="message-title"><strong><%= msg.title %></strong></p>
-        <p><%= msg.message %></p>
-        <p>Author: <%= msg.author %></p>
-        <p>Time: <%= msg.time %></p>
-    </div>
-
     <% if (user.isadmin) { %>
-        <div>
+        <div class="admin-access">
             <p>ID: <%= msg.id%></p>
             <form form action="/delete/<%= msg.id %>" method="POST">
             <!-- confirm with user before deleting message -->
@@ -16,6 +9,14 @@
             </form>
         </div>
     <%}%>
+
+    <div class="general-access">
+        <p class="message-title"><strong><%= msg.title %></strong></p>
+        <p class="message-text"><%= msg.message %></p>
+        <p>Author: <%= msg.author %></p>
+        <p>Time: <%= msg.time %></p>
+    </div>
+
 <%} else {%>
     <div>
         <p><strong><%= msg.title %></strong></p>
