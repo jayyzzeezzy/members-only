@@ -154,3 +154,51 @@ body {
     font-size: 14px;
     padding: 0px 2px;
 }
+
+.newpost-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.back-link {
+    text-decoration: none;
+    color: var(--background);
+    font-size: 18px;
+    font-weight: bold;
+    background-color: var(--purple);
+    width: 60px;
+    border-radius: 8px;
+    border: 2px solid var(--white);
+    display: flex;
+    justify-content: center;
+}
+
+.newpost-form {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--white);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.newpost-form label {
+    font-size: 18px;
+}
+
+.newpost-form input,
+.newpost-form textarea {
+    margin-bottom: 20px;
+    padding: 4px;
+    font-size: 16px;
+}
+
+.newpost-form textarea {
+    min-height: 100px;
+}
+
+.post-btn {
+    padding: 2px 4px;
+    font-weight: bold;
+    font-size: 18px;
+}

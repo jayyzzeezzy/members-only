@@ -7,20 +7,22 @@
   <title>New Post</title>
 </head>
 <body>
-  <a href="/home">
+  <div class="newpost-container">
+  <a href="/home" class="back-link">
     <span>Back</span>
   </a>
   <% if (locals.currentUser) {%>
-    <form action="/new-post" method="POST">
+    <form action="/new-post" method="POST" class="newpost-form">
       <label for="postTitle">Title</label>
       <input id="postTitle" name="postTitle" placeholder="Title" type="text" required />
       <label for="newMessage">Message</label>
-      <textarea name="newMessage" id="newMessage" placeholder="Hello world!" required></textarea>
-      <button type="submit">Post</button>
+      <textarea name="newMessage" id="newMessage" placeholder="e.g. Hello world!" required></textarea>
+      <button type="submit" class="post-btn">Post</button>
     </form>
   <% } else { %>
     <h1>please log in</h1>
     <a href="/">Log In</a>
   <%}%>
+  </div>
 </body>
 </html>
