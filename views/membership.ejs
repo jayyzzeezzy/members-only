@@ -7,18 +7,20 @@
   <title>Membership</title>
 </head>
 <body>
-  <a href="/home">
+  <div class="membership-container">
+  <a href="/home" class="back-link">
     <span>Back</span>
   </a>
   <%- include("partials/errors.ejs") %>
   <% if (currentUser.membership) {%>
     <h1>You're already a member</h1>
   <% } else { %>
-  <form action="/membership" method="POST">
+  <form action="/membership" method="POST" class="membership-form">
     <label for="secretCode">Become a member</label>
     <input id="secretCode" name="secretCode" placeholder="Secret code" type="text" />
-    <button type="submit">Join</button>
+    <button type="submit" class="membership-btn">Join</button>
   </form>
   <%}%>
+  </div>
 </body>
 </html>

@@ -7,7 +7,8 @@
   <title>Admin</title>
 </head>
 <body>
-  <a href="/home">
+  <div class="admin-container">
+  <a href="/home" class="back-link">
     <span>Back</span>
   </a>
   <%- include("partials/errors.ejs") %>
@@ -15,11 +16,12 @@
   <% if (currentUser.isadmin) {%>
     <h1>You're already an Admin</h1>
   <% } else { %>
-  <form action="/admin" method="POST">
+  <form action="/admin" method="POST" class="admin-form">
     <label for="adminCode">Please enter a code:</label>
     <input id="adminCode" name="adminCode" placeholder="Admin code" type="text" />
-    <button type="submit">Submit</button>
+    <button type="submit" class="admin-btn">Submit</button>
   </form>
   <%}%>
+  </div>
 </body>
 </html>

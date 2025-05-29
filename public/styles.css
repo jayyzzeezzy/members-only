@@ -27,6 +27,7 @@ body {
     align-items: center;
 }
 
+/* index view */
 .index-container {
     display: flex;
     flex-direction: column;
@@ -90,12 +91,14 @@ body {
     font-size: 18px;
     font-weight: bold;
     padding: 2px 6px;
+    cursor: pointer;
 }
 
 .home-btn {
     margin-right: 20px;
 }
 
+/* home view */
 .navbar {
     padding: 4px 10px;
     background-color: var(--white);
@@ -155,6 +158,7 @@ body {
     padding: 0px 2px;
 }
 
+/* newPost view */
 .newpost-container {
     display: flex;
     flex-direction: column;
@@ -198,6 +202,42 @@ body {
 }
 
 .post-btn {
+    padding: 2px 4px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* membership and admin views */
+.membership-container,
+.admin-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.membership-form,
+.admin-form {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--white);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.membership-form label,
+.admin-form label {
+    font-size: 18px;
+}
+
+.membership-form input,
+.admin-form input {
+    margin-bottom: 20px;
+    padding: 4px;
+    font-size: 16px;
+}
+
+.membership-btn,
+.admin-btn {
     padding: 2px 4px;
     font-weight: bold;
     font-size: 18px;
