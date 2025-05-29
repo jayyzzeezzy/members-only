@@ -7,9 +7,10 @@
   <title>Sign Up</title>
 </head>
 <body>
+  <div class="signup-page-container">
   <h1>Sign Up</h1>
   <%- include("partials/errors.ejs") %>
-  <form action="/sign-up" method="POST">
+  <form action="/sign-up" method="POST" class="signup-form">
     <label for="firstName">First name</label>
     <input id="firstName" name="firstName" placeholder="First name" type="text" />
     <label for="lastName">Last name</label>
@@ -20,7 +21,19 @@
     <input id="password" name="password" type="password" />
     <label for="confirmPassword">Confirm password</label>
     <input id="confirmPassword" name="confirmPassword" type="password" />
-    <button type="submit">Sign Up</button>
+    <button type="submit" class="signup-page-btn">Sign Up</button>
+    <div class="login-section">
+      <h4>
+        Already have an account?
+      </h4>
+      <a href="/" class="login-link">
+        <button type="button" class="signup-page-login">
+          Log in
+        </button>
+      </a>
+    </div>
   </form>
+  </div>
+
 </body>
 </html>

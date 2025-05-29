@@ -13,6 +13,7 @@
     --background: #212121;
     --white: #E8E8E8;
     --purple: #BB86FC;
+    --red: #CF7777;
 }
 
 html, body {
@@ -241,4 +242,61 @@ body {
     padding: 2px 4px;
     font-weight: bold;
     font-size: 18px;
+}
+
+/* sign-up view */
+.signup-page-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--white);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.signup-form label {
+    font-size: 18px;
+}
+
+.signup-form input {
+    margin-bottom: 15px;
+    padding: 4px;
+    font-size: 16px;
+}
+
+.signup-page-btn {
+    margin-top: 10px;
+    padding: 2px 4px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.login-section {
+    margin-top: 20px;
+}
+
+.login-section h4 {
+    text-align: center;
+}
+
+.login-link {
+    text-decoration: none;
+}
+
+.signup-page-login {
+    display: flex;
+    justify-self: center;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 2px 6px;
+    margin-top: 10px;
+}
+
+.error-message {
+    color: var(--red);
 }
