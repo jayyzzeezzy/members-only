@@ -41,5 +41,10 @@ app.use((req, res, next) => {
 app.use("/", usersRouter);
 app.use('/', authRouter);
 
+app.use((err, req, res, next) => {
+    console.error(err);
+    res.status(500).send(err.message);
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Express app listening on port ${PORT}!`));
