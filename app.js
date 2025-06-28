@@ -18,6 +18,7 @@ const app = express();
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
+// set up session persistence
 app.use(session({ 
     store: new pgSession({
         pool: pgPool,
@@ -28,8 +29,12 @@ app.use(session({
     saveUninitialized: false,
     cookie: { maxAge: 30 * 24 * 60 * 60 * 1000 } // 30 days
 }));
+// allows passport to use "express-session" for its own session middlewares
 app.use(passport.session());
+// authenticate the user info upon log in
 app.use(passport.authenticate('session'));
+
+// Static file support: CSS fiels
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 
